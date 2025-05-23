@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  api:
+    build: ./backend
+    container_name: pluscode_api
+    volumes:
+      - db_data:/app/data
+      - report_media:/app/media
+    restart: unless-stopped
+  caddy:
+    image: caddy:2
+    container_name: pluscode_caddy
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/srv/frontend
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+volumes:
+  db_data:
+  report_media:
+  caddy_data:
+  caddy_config:

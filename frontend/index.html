@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>تقرير أضرار الطريق</title>
+</head>
+<body>
+  <h2>تسجيل تقرير أضرار</h2>
+  <button id="getLoc">الحصول على الموقع</button>
+  <span id="gpsStatus">⏳</span>
+  <br>
+  <button id="recordPlus" disabled>تسجيل Plus Code</button>
+  <p id="plusCodeOut"></p>
+  <select id="categorySel"></select>
+  <select id="itemSel"></select>
+  <input type="number" id="qty" min="1" value="1" style="width:4em;">
+  <button id="addItem">إضافة</button>
+  <ul id="itemList"></ul>
+  <button id="saveReport">حفظ التقرير</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
