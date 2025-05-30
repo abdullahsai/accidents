@@ -1,7 +1,8 @@
 # frontend/Caddyfile
 plus.khaburah.online {
     root * /usr/share/caddy
-    file_server
+    file_server browse
+    index index.html
 
     handle_path /api/* {
         reverse_proxy backend:8000
