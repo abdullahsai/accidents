@@ -1,0 +1,26 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - backend_data:/data
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: caddy:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./frontend:/usr/share/caddy
+      - ./frontend/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  backend_data:
+  caddy_data:
+  caddy_config:
